@@ -1,6 +1,8 @@
 (function($) {
-  $.autoUpdateStylesheets = function(enable_or_disable) {
-    var linkElements = $('head link'), index = -1;
+  var initialized = null, timeout = null;
+
+  $.autoUpdateStylesheets = function(toggle) {
+    var linkElements = $('head link[rel=stylesheet]'), index = -1;
 
     if (enable_or_disable == 'disable') {
       stop();
